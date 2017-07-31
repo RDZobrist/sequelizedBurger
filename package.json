@@ -1,0 +1,33 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.8",
+    "express-handlebars": "^3.0.0",
+    "hbs": "^4.0.1",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "mysql": "^2.13.0",
+    "orm": "^3.2.4",
+    "serve-favicon": "^2.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afflatus480/burger.git"
+  },
+  "author": "Robert Zobrist",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afflatus480/burger/issues"
+  },
+  "homepage": "https://github.com/afflatus480/burger#readme"
+}

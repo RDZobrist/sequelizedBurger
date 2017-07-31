@@ -1,0 +1,104 @@
+/*+++++++++++++++++++++++++++*/
+     /* BASIC SETUP */
+/*+++++++++++++++++++++++++++*/
+
+*  {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html  {
+    background-color:#fff;
+    color: #555;
+
+    font-family: 'Lato', 'Arial', 'sans-serif';
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+
+}
+
+/* +++++ start/ BUTTONS ++++++*/
+
+#recycle-button {
+    background-color: #9e7d31;
+    font-weight: bolder;
+    border: 1.75px solid;
+    text-shadow: 1.7px 1.75px gray;
+    border-color: gray;
+}
+
+#devour-button {
+    background-color: #ff0000;
+    color: #dff442;
+    font-weight: bolder;
+    border: 1.75px solid;
+    border-color: #c16060;
+    text-shadow: 1.7px 1.75px #c16060;
+}
+
+
+/*+++++ end/ BUTTONS +++++++*/
+
+li {
+    padding: 5px;
+    margin: 5px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.create-update-form {
+    padding: 5px;
+    margin: 5px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+
+
+#prep-container,
+#stomach-container {
+    margin: 20px;
+    margin-bottom: 50px;
+    align-content: center;
+    background-color: #d8d8c0;
+}
+#prep-container  {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body {
+
+    display: block;
+    position: relative;
+    background: url(/assets/images/dining-room.jpeg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#order-up-container{
+	
+	 background-color: #d8d8c0 !important;
+	 margin: 50px 0px 0px 75px;
+}
+#header {
+    font-weight: bolder;
+    font-size: 77px;
+    color: white;
+    text-shadow: 1px 2px red;
+}
+
+#header1 {
+    font-weight: bolder;
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 3px red;
+}
+

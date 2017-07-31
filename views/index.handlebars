@@ -1,0 +1,79 @@
+
+
+
+<div class="row">
+<div class="col-lg-4 col-md-4 col-xs-2" id="order-up-container">
+<h2 id="order-ready-message">Order up!</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#unless this.consumed}}
+      <li>
+        {{this.name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="consumed" value="true">
+          <button type="submit" class="btn btn-default" id="devour-button">Devour Me</button>
+        </form>
+
+        {{> burgers/delete-burger}}
+      </li>
+        {{/unless}}
+      {{/each}}
+    </ul>
+    
+  </div>
+
+
+
+
+ {{!-- {{-<-- stomach-container consumed burgers}} --}}
+
+<div id="stomach-container">
+<div class="col-lg-4 col-md-4" col-xs-2 id="stomach-container">
+<h2>Inside Your Digital Stomach</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if this.consumed}}
+      <li>
+        {{this.name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="consumed" value="false">
+          
+        </form>
+      </li>
+
+        {{> burgers/delete-burger}}
+
+         <form action="/{{this.id}}?_method=DELETE" method="POST">
+          <input type="hidden">
+          <button type="submit" class="btn btn-default" id="recycle-button">Recycle</button>
+        </form>
+    {{/if}}
+  {{/each}}
+</ul>
+</div> 
+
+</div>
+</div>
+
+
+<div class="row" >
+<div class="container text-center" >
+
+<div class="col-lg-4 col-md-4" col-xs-2 id="prep-container">
+<h2>Prepare a BURGER</h2>
+<form class="create-update-form" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="ca">Burger-type</label>
+    <input type="text" id="ca" name="name">
+    <button type="submit" class="btn btn-success" id="order-burger-button">Prepare a Burger</button>
+  </div>
+
+</form> 
+</div>
+</div>
+</div>
