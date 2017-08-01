@@ -1,11 +1,12 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var methodOverride = require("method-override");
-var path = require("path");
+const express = require("express");
+const bodyParser = require("body-parser");
+const methodOverride = require("method-override");
+const path = require("path");
 
-var PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3030;
 
-var app = express();
+
+const app = express();
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));

@@ -1,52 +1,40 @@
+<div class="container">
+        <div class="row">
+                        <div class="col-md-5 col-xs-12" id="order-up-container">
+                <h2 id="order-ready-message">Order up!</h2>
+             
+                    <ul class="list-group undevouredBurgers">
+                         {{#each burgers}}
+                             {{#unless this.consumed}}
+                         <li>
+                            {{this.burger_name}}
+                                <form action="/{{this.id}}?_method=PUT" method="POST">
+                                <input type="hidden" name="consumed" value="true">
+                                <button type="submit" class="btn btn-default" id="devour-button">Devour Me</button>
+                            </form>
 
-
-
-<div class="row">
-<div class="col-lg-4 col-md-4 col-xs-2" id="order-up-container">
-<h2 id="order-ready-message">Order up!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#unless this.consumed}}
-      <li>
-        {{this.name}}
-
-        <form action="/{{this.id}}?_method=PUT" method="POST">
-          <input type="hidden" name="consumed" value="true">
-          <button type="submit" class="btn btn-default" id="devour-button">Devour Me</button>
-        </form>
-
-        {{> burgers/delete-burger}}
-      </li>
-        {{/unless}}
-      {{/each}}
-    </ul>
-    
-  </div>
-
-
-
-
- {{!-- {{-<-- stomach-container consumed burgers}} --}}
-
-<div id="stomach-container">
-<div class="col-lg-4 col-md-4" col-xs-2 id="stomach-container">
-<h2>Inside Your Digital Stomach</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if this.consumed}}
-      <li>
-        {{this.name}}
-
+                                  {{> burgers/delete-burger}}
+                               </li>
+                            {{/unless}}
+                           {{/each}}
+                         </ul>      
+                         </div>         
+           
+            <div class="container">
+                <div class="col-md-5 col-xs-12" id="stomach-container">
+                    <h2>Your Digital Stomach</h2>
+                    <ul>
+                      {{#each burgers}}
+                         {{#if this.consumed}}
+                         <li>
+                      {{this.burger_name}}
         <form action="/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="consumed" value="false">
-          
-        </form>
+            </form>
       </li>
 
-        {{> burgers/delete-burger}}
 
+        {{> burgers/delete-burger}}
          <form action="/{{this.id}}?_method=DELETE" method="POST">
           <input type="hidden">
           <button type="submit" class="btn btn-default" id="recycle-button">Recycle</button>
@@ -54,26 +42,29 @@
     {{/if}}
   {{/each}}
 </ul>
-</div> 
-
-</div>
-</div>
-
-
-<div class="row" >
-<div class="container text-center" >
-
-<div class="col-lg-4 col-md-4" col-xs-2 id="prep-container">
-<h2>Prepare a BURGER</h2>
-<form class="create-update-form" action="/" method="POST">
-
-  <div class="form-group">
-    <label for="ca">Burger-type</label>
-    <input type="text" id="ca" name="name">
-    <button type="submit" class="btn btn-success" id="order-burger-button">Prepare a Burger</button>
-  </div>
-
-</form> 
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <div class="row">
+            <div class="col-lg-4 container">
+                <p></p>
+            </div>
+            <div class="col-lg-4 container" id="prep-food-container">
+                <h2 id="counter-header text-center">Order Burgers Here!</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="burger_order">Burger Name</label>
+                        <input type="burger" class="form-control" id="counter" placeholder="Your Burger Here">
+                        <div class="btn btn-lg btn-primary" id="order-burger-button">Or My Burger</div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 container">
+                <p></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
