@@ -3,49 +3,45 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (burger.js) to use its database functions.
-var burger = require("../models/burgers.js");
+var db = require("../models");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burger.all(function(data) {
-    var hbsObject = {
-      burgers: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
-  });
-});
+    db.Burger.findAll({}).then(function(data) {
+        res.render("index", { burgers: data });
 
+    });
+});
+// Post route where user can create burgers
 router.post("/", function(req, res) {
-  burger.create([
-    "name", "consumed"
-  ], [
-    req.body.name, req.body.consumed
-  ], function() {
-    res.redirect("/");
-  });
-});
+            db.Burger.create({
+                burger_name: req.body.burger_name
+            });
+            // PUT Route to update status to consumed
+            router.put("/:id", function(req, res) {
+                db.Burger.update({
+                    consumed: true
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                }).then(function() {
+                    res.redirect("/")
+                });
+            });
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  console.log("condition", condition);
-
-  burger.update({
-    consumed: req.body.consumed
-  }, condition, function() {
-    res.redirect("/");
-  });
-});
-
-router.delete("/:id", function(req, res) {
-	var condition = "id = " + req.params.id;
-
-	burger.delete(condition, function() {
-		res.redirect("/");
-	});
-});
+            router.delete("/:id", function(req, res) {
+                db.Burger.destroy({
+                    where: {
+                        id: req.params.id
+                    }
+                }).then(function() {
+                    res.redirect("/")
+                })
+            });
 
 
-// Export routes for server.js to use.
-module.exports = router;
+     });  
+
+         // Export routes for server.js to use.
+            module.exports = router;

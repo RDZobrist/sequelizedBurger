@@ -1,33 +1,32 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const methodOverride = require("method-override");
-const path = require("path");
-
-const PORT = process.env.PORT || 3030;
-
-
-const app = express();
+var express = require("express");
+var db = require("./models");
+var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
+var app = express();
+var PORT = process.env.PORT || 3000;
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+app.use(express.static(process.cwd() + "/public"));
 
+// Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Override with POST having ?_method=DELETE
 app.use(methodOverride("_method"));
 
-// Set Handlebars.
+//Require Handlebars
 var exphbs = require("express-handlebars");
 
+//Select and set Handlebars as the engine and "main" as the default layout
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give the server access to them.
-var routes = require("./controllers/burgerController.js");
+//Imports the routes from burgers_controller
+var routes = require('./controllers/burgerController.js');
+app.use('/', routes);
 
-app.use("/", routes);
-
-
-
-app.listen(PORT);
-console.log('app listening on port ' + PORT);
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function() {
+        console.log("Listening on port %s", PORT);
+    });
+});
