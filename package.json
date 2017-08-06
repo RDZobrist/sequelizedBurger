@@ -7,20 +7,19 @@
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "debug": "^2.6.8",
+    "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "hbs": "^4.0.1",
     "method-override": "^2.3.9",
     "morgan": "^1.8.2",
     "mysql": "^2.13.0",
     "orm": "^3.2.4",
-    "serve-favicon": "^2.4.3",
-    "express": "^4.15.3"
+    "sequelize": "^4.4.2",
+    "serve-favicon": "^2.4.3"
   },
-
   "devDependencies": {
     "express": "^4.15.3"
   },
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
