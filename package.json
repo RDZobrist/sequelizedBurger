@@ -15,19 +15,21 @@
     "orm": "^3.2.4",
     "serve-favicon": "^2.4.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "sequelize": "^4.4.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/afflatus480/burger.git"
+    "url": "git+https://github.com/afflatus480/sequelizedBurger.git"
   },
   "author": "Robert Zobrist",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/afflatus480/burger/issues"
+    "url": "https://github.com/afflatus480/sequelizedBurger/issues"
   },
-  "homepage": "https://github.com/afflatus480/burger#readme"
+  "homepage": "https://github.com/afflatus480/sequelizedBurger#readme"
 }
