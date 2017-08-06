@@ -88,7 +88,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-image: linear-gradient(rgba(0, 0, 0, .54), rgba(0, 0, 0, .45)), url(/assets/images/dining-room.jpeg);
-    
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
 }
@@ -99,6 +99,8 @@ body {
 
     background-color: #d8d8c0 !important;
     margin: 50px 0px 0px 75px;
+    border-radius: 5px;
+    box-shadow: 2px #555;
 }
 
 #header {
