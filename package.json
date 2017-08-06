@@ -15,7 +15,9 @@
     "orm": "^3.2.4",
     "serve-favicon": "^2.4.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "express": "^4.15.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
